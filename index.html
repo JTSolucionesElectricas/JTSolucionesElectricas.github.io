@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JT Soluciones Eléctricas - Instalaciones Eléctricas Profesionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⚡";
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Services */
+        .services {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            text-align: center;
+            font-size: 10rem;
+            color: #3498db;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Gallery */
+        .gallery {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .gallery-item h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            color: #3498db;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: #3498db;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ecf0f1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">JT Soluciones Eléctricas</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#agradecimientos">Agradecimientos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Instalaciones Eléctricas Profesionales</h1>
+                <p>4 años de experiencia garantizando tu seguridad y tranquilidad. Servicios eléctricos de calidad con certificación oficial.</p>
+                <a href="#contacto" class="cta-button">Solicita tu Presupuesto</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Mis Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🔌 Instalaciones Domésticas</h3>
+                    <p>Instalación completa de sistemas eléctricos para viviendas, incluyendo cableado, enchufes, interruptores y cuadros eléctricos. Cumpliendo todas las normativas de seguridad.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏢 Instalaciones Comerciales</h3>
+                    <p>Soluciones eléctricas para negocios, oficinas y locales comerciales. Sistemas de iluminación eficiente y instalaciones industriales de baja tensión.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔧 Mantenimiento y Reparaciones</h3>
+                    <p>Servicios de mantenimiento preventivo y correctivo. Reparación de averías eléctricas, cambio de componentes defectuosos y mejoras del sistema.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📋 Certificaciones</h3>
+                    <p>Emisión de certificados de instalaciones eléctricas y boletines eléctricos oficiales. Inspecciones técnicas y legalizaciones ante organismos competentes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💡 Iluminación LED</h3>
+                    <p>Actualización a sistemas de iluminación LED eficientes. Reducción del consumo energético con mayor durabilidad y mejor calidad de luz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>4 años de experiencia</strong> en el sector eléctrico me avalan como profesional cualificado. Soy electricista autorizado con certificación oficial para realizar instalaciones eléctricas en baja tensión.</p>
+                    
+                    <p>Mi compromiso es ofrecer <strong>servicios de máxima calidad</strong>, cumpliendo con el Reglamento Electrotécnico de Baja Tensión (REBT) y las normativas de seguridad vigentes.</p>
+                    
+                    <p><strong>¿Por qué elegirme?</strong></p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>✓ Electricista autorizado y certificado</li>
+                        <li>✓ Experiencia consolidada en el sector</li>
+                        <li>✓ Presupuestos sin compromiso</li>
+                        <li>✓ Garantía en todos los trabajos</li>
+                        <li>✓ Materiales de primera calidad</li>
+                        <li>✓ Atención personalizada</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    ⚡
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agradecimientos" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Agradecimientos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🙏</div>
+                    <h4>Gracias por Confiar</h4>
+                    <p>Su elección en mis servicios me ayudará a que cada día sea de mayor calidad, ya que cada nuevo trabajo se afronta de diferente manera y me permite crecer profesionalmente.</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📈</div>
+                    <h4>Crecimiento Continuo</h4>
+                    <p>Cada proyecto es una oportunidad de aprendizaje que me permite mejorar mis técnicas y ofrecer soluciones más eficientes a futuros clientes.</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🤝</div>
+                    <h4>Compromiso Personal</h4>
+                    <p>Mi objetivo es construir relaciones de confianza duraderas, donde cada cliente se sienta seguro y satisfecho con el servicio recibido.</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">⚡</div>
+                    <h4>Pasión por la Excelencia</h4>
+                    <p>La electricidad es mi vocación, y cada instalación es tratada con el máximo cuidado y dedicación, como si fuera para mi propio hogar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Hablemos de tu proyecto</h3>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            +34 639 02 23 60
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>✉️</i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            jtsolucioneselectricas@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <div>
+                            <strong>Zona de trabajo:</strong><br>
+                            Ciudad Real y alrededores
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>🕒</i>
+                        <div>
+                            <strong>Horario:</strong><br>
+                            Lun-Vie: 9:00 - 14:00 y 16:00 - 19:00
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Describe tu proyecto *</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntame qué tipo de instalación necesitas, ubicación, fechas aproximadas..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Solicitar Presupuesto</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JT Soluciones Eléctricas. Todos los derechos reservados.</p>
+            <p>Electricista autorizado - Certificado oficial para instalaciones de baja tensión</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Simple validation
+            if (!data.nombre || !data.telefono || !data.mensaje) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent('Solicitud de presupuesto - ' + data.nombre);
+            const body = encodeURIComponent(
+                `Nombre: ${data.nombre}\n` +
+                `Teléfono: ${data.telefono}\n` +
+                `Email: ${data.email || 'No proporcionado'}\n\n` +
+                `Proyecto:\n${data.mensaje}\n\n` +
+                `---\nEnviado desde jtsoluciones.es`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:jtsolucioneselectricas@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Show confirmation
+            alert('¡Gracias! Se abrirá tu cliente de correo para enviar la solicitud. Si no se abre automáticamente, puedes contactarme directamente al teléfono indicado.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
